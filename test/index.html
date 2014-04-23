@@ -1,0 +1,16 @@
+<!DOCTYPE html><html><head><title>test</title>
+<meta charset="utf-8"></head><body>
+
+<script id="worker" type="javascript/worker">
+onmessage = function(event) {
+    var baseDir = event.data.baseDir;
+
+    
+
+    self.postMessage({ error: self.errorMessage || "" });
+};
+</script>
+
+
+
+</body></html>
