@@ -16,9 +16,9 @@ new Test().add([
 
 function testNodeModule_load(next) {
 
-    var result = NodeModule.load("");
+    var result = NodeModule.load({ develop: true });
 
-    // console.log( JSON.stringify(result, null, 2) );
+//  console.log( JSON.stringify(result, null, 2) );
 
     if (result.nodeFiles.join(",").indexOf("uupaa.valid.js") >= 0) {
         console.log("testNodeModule_load ok");

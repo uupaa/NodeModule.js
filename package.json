@@ -1,6 +1,6 @@
 {
   "name":           "uupaa.nodemodule.js",
-  "version":        "0.0.2",
+  "version":        "0.1.0",
   "description":    "Node Module Utility.",
   "url":            "https://github.com/uupaa/NodeModule.js",
   "keywords":       ["Node", "Module", "util", "uupaa", "WebModule"],
@@ -13,7 +13,7 @@
     "build":        "node node_modules/uupaa.minify.js --verbose --strict --keep --pretty",
     "build-simple": "node node_modules/uupaa.minify.js --verbose --strict --keep --pretty --nowrap --simple",
     "build-release":"node node_modules/uupaa.minify.js --verbose --strict --module",
-    "test":         "npm run test-node; npm run test-browser",
+    "test":         "npm run test-node",
     "test-update":  "node node_modules/uupaa.test.js/bin/Test.js --browser --node",
     "test-node":    "NODE_ENV=production NODE_PATH=lib node --harmony test/index.node.js",
     "test-browser": "open test/index.html",
