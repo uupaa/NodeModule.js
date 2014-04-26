@@ -1,5 +1,5 @@
 new Test().add([
-        testNodeModule_load,
+        testNodeModule_collectModuleData,
     ]).run(function(err, test) {
         if (1) {
             err || test.worker(function(err, test) {
@@ -14,9 +14,9 @@ new Test().add([
         }
     });
 
-function testNodeModule_load(next) {
+function testNodeModule_collectModuleData(next) {
 
-    var result = NodeModule.load({ develop: true });
+    var result = NodeModule.collectModuleData({ develop: true });
 
 //  console.log( JSON.stringify(result, null, 2) );
 
