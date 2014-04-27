@@ -1,6 +1,6 @@
 {
   "name":           "uupaa.nodemodule.js",
-  "version":        "0.5.1",
+  "version":        "0.6.0",
   "description":    "Node Module Utility.",
   "url":            "https://github.com/uupaa/NodeModule.js",
   "keywords":       ["Node", "Module", "util", "uupaa", "WebModule"],
@@ -16,13 +16,18 @@
     "test":         "npm run test-node",
     "test-page":    "node node_modules/uupaa.test.js/bin/TestPage.js",
     "test-node":    "NODE_ENV=production NODE_PATH=lib node --harmony test/index.node.js",
+    "test-debug":   "NODE_ENV=production NODE_PATH=lib node --debug-brk --harmony test/index.node.js",
     "test-browser": "open test/index.html",
     "lint":         "node node_modules/uupaa.plato.js; open lint/plato/index.html"
   },
   "x-build": {
     "files":        ["lib/NodeModule.js"],
     "output":       "release/NodeModule.min.js",
-    "target":       ["Node"]
+    "target":       ["Node"],
+    "module": {
+      "develop":    [],
+      "release":    []
+    }
   },
   "dependencies": {
   },
