@@ -1,6 +1,6 @@
 {
   "name":           "uupaa.nodemodule.js",
-  "version":        "0.7.1",
+  "version":        "0.7.2",
   "description":    "Node Module Utility.",
   "url":            "https://github.com/uupaa/NodeModule.js",
   "keywords":       ["Node", "Module", "util", "uupaa", "WebModule"],

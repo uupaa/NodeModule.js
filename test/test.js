@@ -1,6 +1,7 @@
 (function(global) {
 
 
+// --- test data -----------------------------------------------------
 var PackageHMAC = {
                   "name":           "uupaa.hmac.js",
                   "version":        "0.8.21",
@@ -397,8 +398,8 @@ debugger;
     var param = { develop: true, packageFiles: packageFiles };
     var files = NodeModule.files(param);
 
-    console.log( "result: " + JSON.stringify(result, null, 2) );
-    console.log( "files: " + JSON.stringify(files, null, 2) );
+    //console.log( "result: " + JSON.stringify(result, null, 2) );
+    //console.log( "files: " + JSON.stringify(files, null, 2) );
 
     if ( JSON.stringify(result) === JSON.stringify(files) ) {
         console.log("testNodeModule_files ok");
