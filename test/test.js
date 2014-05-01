@@ -1,5 +1,4 @@
-(function(global) {
-
+var ModuleTest = (function(global) {
 
 // --- test data -----------------------------------------------------
 var PackageHMAC = {
@@ -316,21 +315,18 @@ var PackageWatch = {
 
 // --------------------------------------------------------------------------
 
-new Test().add([
+return new Test({
+        disable:    false,
+        node:       true,
+        browser:    false,
+        worker:     false,
+        button:     true,
+        both:       true,
+        primary:    global["NodeModule"],
+        secondary:  global["NodeModule_"],
+    }).add([
         testNodeModule_files,
-    ]).run(function(err, test) {
-        if (0) {
-            err || test.worker(function(err, test) {
-                if (!err && typeof NodeModule_ !== "undefined") {
-                    var name = Test.swap(NodeModule, NodeModule_);
-
-                    new Test(test).run(function(err, test) {
-                        Test.undo(name);
-                    });
-                }
-            });
-        }
-    });
+    ]).run().clone();
 
 // --------------------------------------------------------------------------
 
