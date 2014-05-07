@@ -1,4 +1,4 @@
-var ModuleTest = (function(global) {
+var ModuleTestNodeModule = (function(global) {
 
 // --- test data -----------------------------------------------------
 var PackageHMAC = {
@@ -315,15 +315,13 @@ var PackageWatch = {
 
 // --------------------------------------------------------------------------
 
-return new Test({
+return new Test("NodeModule", {
         disable:    false,
-        node:       true,
         browser:    false,
         worker:     false,
+        node:       true,
         button:     true,
         both:       true,
-        primary:    global["NodeModule"],
-        secondary:  global["NodeModule_"],
     }).add([
         testNodeModule_files,
     ]).run().clone();
@@ -333,7 +331,6 @@ return new Test({
 function testNodeModule_files(next) {
     var packageFiles = {};
 
-debugger;
     packageFiles["package.json"] = PackageHMAC;
     packageFiles["node_modules/uupaa.bytearray.js/package.json"] = PackageByteArray;
     packageFiles["node_modules/uupaa.console.js/package.json"] = PackageConsole;
@@ -398,10 +395,8 @@ debugger;
     //console.log( "files: " + JSON.stringify(files, null, 2) );
 
     if ( JSON.stringify(result) === JSON.stringify(files) ) {
-        console.log("testNodeModule_files ok");
         next && next.pass();
     } else {
-        console.error("testNodeModule_files ng");
         next && next.miss();
     }
 }

@@ -8,9 +8,9 @@ Node Module Utility.
 
 # Document
 
-- [WebModule](https://github.com/uupaa/WebModule) ([Slide](http://uupaa.github.io/Slide/slide/WebModule/index.html))
-- [Development](https://github.com/uupaa/WebModule/wiki/Development)
 - [NodeModule.js wiki](https://github.com/uupaa/NodeModule.js/wiki/NodeModule)
+- [Development](https://github.com/uupaa/WebModule/wiki/Development)
+- [WebModule](https://github.com/uupaa/WebModule) ([Slide](http://uupaa.github.io/Slide/slide/WebModule/index.html))
 
 
 # How to use
@@ -19,6 +19,6 @@ Node Module Utility.
 // for Node.js
 var NodeModule = require("lib/NodeModule.js");
 
-console.log( JSON.stringify(NodeModule.load(), null, 2) );
+console.log( JSON.stringify(NodeModule.files(), null, 2) );
 ```
 
