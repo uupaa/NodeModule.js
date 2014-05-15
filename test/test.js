@@ -8,6 +8,7 @@ var PackageHMAC = {
                     "files":        ["lib/HMAC.js"],
                     "output":       "release/HMAC.min.js",
                     "target":       ["all"],
+                    "labels":       [],
                     "module": {
                       "develop":    ["uupaa.valid.js"],
                       "release":    ["uupaa.bytearray.js"]
@@ -38,6 +39,7 @@ var PackageByteArray = {
                     "files": [ "lib/ByteArray.js" ],
                     "output": "release/ByteArray.min.js",
                     "target": [ "all" ],
+                    "labels": [],
                     "module": {
                       "develop": [ "uupaa.valid.js" ],
                       "release": []
@@ -64,6 +66,7 @@ var PackageConsole = {
                     "files": [ "lib/Console.js" ],
                     "output": "release/Console.min.js",
                     "target": [ "Worker" ],
+                    "labels": [],
                     "module": {
                       "develop": [],
                       "release": []
@@ -88,6 +91,7 @@ var PackageHelp = {
                     "files": [ "lib/Help.js" ],
                     "output": "release/Help.min.js",
                     "target": [ "Browser" ],
+                    "labels": [],
                     "module": {
                       "develop": [],
                       "release": []
@@ -113,6 +117,7 @@ var PackageMD5 = {
                     "files": [ "lib/MD5.js" ],
                     "output": "release/MD5.min.js",
                     "target": [ "all" ],
+                    "labels": [],
                     "module": {
                       "develop": [ "uupaa.valid.js" ],
                       "release": [ "uupaa.bytearray.js" ]
@@ -141,6 +146,7 @@ var PackageMinify = {
                     "files": [ "lib/Minify.js" ],
                     "output": "release/Minify.min.js",
                     "target": [],
+                    "labels": [],
                     "module": {
                       "develop": [],
                       "release": []
@@ -159,6 +165,7 @@ var PackageNodeModule = {
                     "files": [ "lib/NodeModule.js" ],
                     "output": "release/NodeModule.min.js",
                     "target": [ "Node" ],
+                    "labels": [],
                     "module": {
                       "develop": [],
                       "release": []
@@ -184,6 +191,7 @@ var PackagePlato = {
                     "files": [ "lib/Plato.js" ],
                     "output": "release/Plato.min.js",
                     "target": [],
+                    "labels": [],
                     "module": {
                       "develop": [],
                       "release": []
@@ -200,6 +208,7 @@ var PackageSHA1 = {
                     "files": [ "lib/SHA1.js" ],
                     "output": "release/SHA1.min.js",
                     "target": [ "all" ],
+                    "labels": [],
                     "module": {
                       "develop": [ "uupaa.valid.js" ],
                       "release": [ "uupaa.bytearray.js" ]
@@ -228,6 +237,7 @@ var PackageTask = {
                     "files": [ "lib/Task.js" ],
                     "output": "release/Task.min.js",
                     "target": [ "all" ],
+                    "labels": [],
                     "module": {
                       "develop": [ "uupaa.valid.js" ],
                       "release": []
@@ -253,6 +263,7 @@ var PackageTest = {
                     "files": [ "lib/Test.js" ],
                     "output": "release/Test.min.js",
                     "target": [ "all" ],
+                    "labels": [],
                     "module": {
                       "develop": [ "uupaa.valid.js", "uupaa.task.js" ],
                       "release": [ "uupaa.task.js" ]
@@ -279,6 +290,7 @@ var PackageValid = {
                     "files": [ "lib/Valid.js" ],
                     "output": "release/Valid.min.js",
                     "target": [ "all" ],
+                    "labels": [],
                     "module": {
                       "develop": [],
                       "release": []
@@ -304,6 +316,7 @@ var PackageWatch = {
                     "files": [ "lib/Watch.js" ],
                     "output": "release/Watch.min.js",
                     "target": [],
+                    "labels": [],
                     "module": {
                       "develop": [],
                       "release": []
@@ -385,7 +398,8 @@ function testNodeModule_files(next) {
         "node_modules/uupaa.bytearray.js/lib/ByteArray.js",
         "node_modules/uupaa.sha1.js/lib/SHA1.js",
         "node_modules/uupaa.md5.js/lib/MD5.js"
-      ]
+      ],
+      "labels": []
     };
 
     var param = { develop: true, packageFiles: packageFiles };

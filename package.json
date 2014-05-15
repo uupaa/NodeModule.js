@@ -1,6 +1,6 @@
 {
   "name":           "uupaa.nodemodule.js",
-  "version":        "0.7.4",
+  "version":        "0.7.5",
   "description":    "Node Module Utility.",
   "url":            "https://github.com/uupaa/NodeModule.js",
   "keywords":       ["Node", "Module", "util", "uupaa", "WebModule"],
@@ -24,6 +24,7 @@
     "files":        ["lib/NodeModule.js"],
     "output":       "release/NodeModule.min.js",
     "target":       ["Node"],
+    "labels":       [],
     "module": {
       "develop":    [],
       "release":    []
