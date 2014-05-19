@@ -337,6 +337,7 @@ return new Test("NodeModule", {
         both:       true,
     }).add([
         testNodeModule_files,
+        testNodeModule_sortModuleListByDependencyOrder,
     ]).run().clone();
 
 // --------------------------------------------------------------------------
@@ -415,6 +416,63 @@ function testNodeModule_files(next) {
     }
 }
 
+function testNodeModule_sortModuleListByDependencyOrder(next) {
+    var list = [
+      "uupaa.nodemodule.js",
+      "uupaa.console.js",
+      "uupaa.valid.js",
+      "uupaa.help.js",
+      "uupaa.task.js",
+      "uupaa.test.js",
+      "uupaa.reflection.js"
+    ];
+
+    var tree = {
+      "uupaa.nodemodule.js": {},
+      "uupaa.reflection.js": {},
+      "uupaa.console.js": {},
+      "uupaa.valid.js": {
+        "uupaa.reflection.js": {},
+        "uupaa.help.js": {}
+      },
+      "uupaa.help.js": {
+        "uupaa.reflection.js": {},
+        "uupaa.console.js": {}
+      },
+      "uupaa.task.js": {
+        "uupaa.valid.js": {}
+      },
+      "uupaa.test.js": {
+        "uupaa.valid.js": {},
+        "uupaa.task.js": {}
+      },
+      "uupaa.watch.js": {},
+      "uupaa.plato.js": {},
+      "uupaa.minify.js": {}
+    };
+
+    var resultList = [
+      "uupaa.nodemodule.js", // 依存関係なし
+      "uupaa.console.js",    // valid や help より前
+      "uupaa.reflection.js", // test, task, valid, help より前
+      "uupaa.help.js",       // valid より前, reflection より後ろ
+      "uupaa.valid.js",      // task より前, help, console, reflection より後ろ
+      "uupaa.task.js",       // test より前, valid, reflection より後ろ
+      "uupaa.test.js"        // task より後ろ
+    ];
+
+    console.log("list: ", JSON.stringify(list, null, 2));
+    console.log("tree: ", JSON.stringify(tree, null, 2));
+    console.log("resultList: ", JSON.stringify(resultList, null, 2));
+
+    var result = NodeModule.sortModuleListByDependencyOrder(list, tree);
+
+    if ( result.join() === resultList.join() ) {
+        next && next.pass();
+    } else {
+        next && next.miss();
+    }
+}
 
 })((this || 0).self || global);
 
