@@ -1,6 +1,6 @@
 {
   "name":           "uupaa.nodemodule.js",
-  "version":        "0.7.10",
+  "version":        "0.8.0",
   "description":    "Node Module Utility.",
   "url":            "https://github.com/uupaa/NodeModule.js",
   "keywords":       ["Node", "Module", "util", "uupaa", "WebModule"],
@@ -21,10 +21,10 @@
     "lint":         "node node_modules/uupaa.plato.js; open lint/plato/index.html"
   },
   "x-build": {
-    "files":        ["lib/NodeModule.js"],
+    "source":       ["lib/NodeModule.js"],
     "output":       "release/NodeModule.min.js",
     "target":       ["Node"],
-    "labels":       [],
+    "label":        [],
     "module": {
       "develop":    [],
       "release":    []

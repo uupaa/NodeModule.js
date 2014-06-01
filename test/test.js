@@ -5,10 +5,10 @@ var PackageHMAC = {
                   "name":           "uupaa.hmac.js",
                   "version":        "0.8.21",
                   "x-build": {
-                    "files":        ["lib/HMAC.js"],
+                    "source":       ["lib/HMAC.js"],
                     "output":       "release/HMAC.min.js",
                     "target":       ["all"],
-                    "labels":       [],
+                    "label":       [],
                     "module": {
                       "develop":    ["uupaa.valid.js"],
                       "release":    ["uupaa.bytearray.js"]
@@ -36,10 +36,10 @@ var PackageByteArray = {
                   "name": "uupaa.bytearray.js",
                   "version": "0.9.5",
                   "x-build": {
-                    "files": [ "lib/ByteArray.js" ],
+                    "source": [ "lib/ByteArray.js" ],
                     "output": "release/ByteArray.min.js",
                     "target": [ "all" ],
-                    "labels": [],
+                    "label": [],
                     "module": {
                       "develop": [ "uupaa.valid.js" ],
                       "release": []
@@ -63,10 +63,10 @@ var PackageConsole = {
                   "name": "uupaa.console.js",
                   "version": "0.8.7",
                   "x-build": {
-                    "files": [ "lib/Console.js" ],
+                    "source": [ "lib/Console.js" ],
                     "output": "release/Console.min.js",
                     "target": [ "Worker" ],
-                    "labels": [],
+                    "label": [],
                     "module": {
                       "develop": [],
                       "release": []
@@ -88,10 +88,10 @@ var PackageHelp = {
                   "name": "uupaa.help.js",
                   "version": "0.8.25",
                   "x-build": {
-                    "files": [ "lib/Help.js" ],
+                    "source": [ "lib/Help.js" ],
                     "output": "release/Help.min.js",
                     "target": [ "Browser" ],
-                    "labels": [],
+                    "label": [],
                     "module": {
                       "develop": [],
                       "release": []
@@ -114,10 +114,10 @@ var PackageMD5 = {
                   "name": "uupaa.md5.js",
                   "version": "0.8.19",
                   "x-build": {
-                    "files": [ "lib/MD5.js" ],
+                    "source": [ "lib/MD5.js" ],
                     "output": "release/MD5.min.js",
                     "target": [ "all" ],
-                    "labels": [],
+                    "label": [],
                     "module": {
                       "develop": [ "uupaa.valid.js" ],
                       "release": [ "uupaa.bytearray.js" ]
@@ -143,10 +143,10 @@ var PackageMinify = {
                   "name": "uupaa.minify.js",
                   "version": "0.10.8",
                   "x-build": {
-                    "files": [ "lib/Minify.js" ],
+                    "source": [ "lib/Minify.js" ],
                     "output": "release/Minify.min.js",
                     "target": [],
-                    "labels": [],
+                    "label": [],
                     "module": {
                       "develop": [],
                       "release": []
@@ -162,10 +162,10 @@ var PackageNodeModule = {
                   "name": "uupaa.nodemodule.js",
                   "version": "0.6.12",
                   "x-build": {
-                    "files": [ "lib/NodeModule.js" ],
+                    "source": [ "lib/NodeModule.js" ],
                     "output": "release/NodeModule.min.js",
                     "target": [ "Node" ],
-                    "labels": [],
+                    "label": [],
                     "module": {
                       "develop": [],
                       "release": []
@@ -188,10 +188,10 @@ var PackagePlato = {
                   "name": "uupaa.plato.js",
                   "version": "0.8.13",
                   "x-build": {
-                    "files": [ "lib/Plato.js" ],
+                    "source": [ "lib/Plato.js" ],
                     "output": "release/Plato.min.js",
                     "target": [],
-                    "labels": [],
+                    "label": [],
                     "module": {
                       "develop": [],
                       "release": []
@@ -205,10 +205,10 @@ var PackageSHA1 = {
                   "name": "uupaa.sha1.js",
                   "version": "0.8.13",
                   "x-build": {
-                    "files": [ "lib/SHA1.js" ],
+                    "source": [ "lib/SHA1.js" ],
                     "output": "release/SHA1.min.js",
                     "target": [ "all" ],
-                    "labels": [],
+                    "label": [],
                     "module": {
                       "develop": [ "uupaa.valid.js" ],
                       "release": [ "uupaa.bytearray.js" ]
@@ -234,10 +234,10 @@ var PackageTask = {
                   "name": "uupaa.task.js",
                   "version": "0.8.33",
                   "x-build": {
-                    "files": [ "lib/Task.js" ],
+                    "source": [ "lib/Task.js" ],
                     "output": "release/Task.min.js",
                     "target": [ "all" ],
-                    "labels": [],
+                    "label": [],
                     "module": {
                       "develop": [ "uupaa.valid.js" ],
                       "release": []
@@ -260,10 +260,10 @@ var PackageTest = {
                   "name": "uupaa.test.js",
                   "version": "0.10.11",
                   "x-build": {
-                    "files": [ "lib/Test.js" ],
+                    "source": [ "lib/Test.js" ],
                     "output": "release/Test.min.js",
                     "target": [ "all" ],
-                    "labels": [],
+                    "label": [],
                     "module": {
                       "develop": [ "uupaa.valid.js", "uupaa.task.js" ],
                       "release": [ "uupaa.task.js" ]
@@ -287,10 +287,10 @@ var PackageValid = {
                   "name": "uupaa.valid.js",
                   "version": "0.8.12",
                   "x-build": {
-                    "files": [ "lib/Valid.js" ],
+                    "source": [ "lib/Valid.js" ],
                     "output": "release/Valid.min.js",
                     "target": [ "all" ],
-                    "labels": [],
+                    "label": [],
                     "module": {
                       "develop": [],
                       "release": []
@@ -313,10 +313,10 @@ var PackageWatch = {
                   "name": "uupaa.watch.js",
                   "version": "0.8.13",
                   "x-build": {
-                    "files": [ "lib/Watch.js" ],
+                    "source": [ "lib/Watch.js" ],
                     "output": "release/Watch.min.js",
                     "target": [],
-                    "labels": [],
+                    "label": [],
                     "module": {
                       "develop": [],
                       "release": []
@@ -400,7 +400,7 @@ function testNodeModule_files(next) {
         "node_modules/uupaa.sha1.js/lib/SHA1.js",
         "node_modules/uupaa.md5.js/lib/MD5.js"
       ],
-      "labels": []
+      "label": []
     };
 
     var param = { develop: true, packageFiles: packageFiles };
