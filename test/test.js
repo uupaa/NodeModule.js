@@ -326,6 +326,33 @@ var PackageWatch = {
                   "devDependencies": {},
                 };
 
+var PackageReflection = {
+                  "name":           "uupaa.reflection.js",
+                  "version":        "0.0.17",
+                  "x-build": {
+                    "source":       ["lib/Reflection.js"],
+                    "output":       "release/Reflection.min.js",
+                    "target":       ["all"],
+                    "label":        ["@dev"],
+                    "module": {
+                      "develop":    [],
+                      "release":    []
+                    }
+                  },
+                  "dependencies": {},
+                  "devDependencies": {
+                    "uupaa.nodemodule.js": "",
+                    "uupaa.console.js": "",
+                    "uupaa.valid.js":   "",
+                    "uupaa.help.js":    "",
+                    "uupaa.task.js":    "",
+                    "uupaa.test.js":    "",
+                    "uupaa.watch.js":   "",
+                    "uupaa.plato.js":   "",
+                    "uupaa.minify.js":  ""
+                  }
+                };
+
 // --------------------------------------------------------------------------
 
 return new Test("NodeModule", {
@@ -333,16 +360,16 @@ return new Test("NodeModule", {
         browser:    false,
         worker:     false,
         node:       true,
-        button:     true,
-        both:       true,
+        button:     false,
+        both:       false,
     }).add([
-        testNodeModule_files,
+//        testNodeModule_files,
         testNodeModule_sortModuleListByDependencyOrder,
     ]).run().clone();
 
 // --------------------------------------------------------------------------
 
-function testNodeModule_files(next) {
+function testNodeModule_files(test, pass, miss) {
     var packageFiles = {};
 
     packageFiles["package.json"] = PackageHMAC;
@@ -360,6 +387,7 @@ function testNodeModule_files(next) {
     packageFiles["node_modules/uupaa.test.js/package.json"] = PackageTest;
     packageFiles["node_modules/uupaa.valid.js/package.json"] = PackageValid;
     packageFiles["node_modules/uupaa.watch.js/package.json"] = PackageWatch;
+//  packageFiles["node_modules/uupaa.reflection.js/package.json"] = PackageReflection;
 
     var result = {
       "all": [
@@ -410,67 +438,69 @@ function testNodeModule_files(next) {
     //console.log( "files: " + JSON.stringify(files, null, 2) );
 
     if ( JSON.stringify(result) === JSON.stringify(files) ) {
-        next && next.pass();
+        test.done(pass());
     } else {
-        next && next.miss();
+        test.done(miss());
     }
 }
 
-function testNodeModule_sortModuleListByDependencyOrder(next) {
+function testNodeModule_sortModuleListByDependencyOrder(test, pass, miss) {
     var list = [
-      "uupaa.nodemodule.js",
-      "uupaa.console.js",
-      "uupaa.valid.js",
-      "uupaa.help.js",
-      "uupaa.task.js",
-      "uupaa.test.js",
-      "uupaa.reflection.js"
+      "nodemodule",
+      "console",
+      "valid",
+      "help",
+      "task",
+      "test",
+      "lv3",
+      "reflection"
     ];
 
     var tree = {
-      "uupaa.nodemodule.js": {},
-      "uupaa.reflection.js": {},
-      "uupaa.console.js": {},
-      "uupaa.valid.js": {
-        "uupaa.reflection.js": {},
-        "uupaa.help.js": {}
+      "nodemodule": {},    // 依存関係なし
+      "console": {},       // 他のモジュール(help)が参照している
+      "valid": {
+        "reflection": {},  // [1] reflection が valid より前に必要
+        "help": {          // [2] help が valid より前に必要
+          "lv3": {         // [8] lv3 が help や valid の前に必要
+          }
+        }
       },
-      "uupaa.help.js": {
-        "uupaa.reflection.js": {},
-        "uupaa.console.js": {}
+      "help": {
+        "reflection": {},  // [3] reflection が help より前に必要
+        "console": {}      // [4] console が help より前に必要
       },
-      "uupaa.task.js": {
-        "uupaa.valid.js": {}
+      "task": {
+        "valid": {}        // [5] valid が task より前に必要
       },
-      "uupaa.test.js": {
-        "uupaa.valid.js": {},
-        "uupaa.task.js": {}
+      "test": {
+        "valid": {},       // [6] valid が test より前に必要
+        "task": {}         // [7] task が test より前に必要
       },
-      "uupaa.watch.js": {},
-      "uupaa.plato.js": {},
-      "uupaa.minify.js": {}
+      "reflection": {},    // 他のモジュール(valid, help)が参照している
     };
 
     var resultList = [
-      "uupaa.nodemodule.js", // 依存関係なし
-      "uupaa.console.js",    // valid や help より前
-      "uupaa.reflection.js", // test, task, valid, help より前
-      "uupaa.help.js",       // valid より前, reflection より後ろ
-      "uupaa.valid.js",      // task より前, help, console, reflection より後ろ
-      "uupaa.task.js",       // test より前, valid, reflection より後ろ
-      "uupaa.test.js"        // task より後ろ
+      "nodemodule",
+      "console",            // [4]
+      "reflection",         // [1][3]
+      "lv3",                // [8]
+      "help",               // [2]
+      "valid",              // [5][6]
+      "task",               // [7]
+      "test",
     ];
 
     console.log("list: ", JSON.stringify(list, null, 2));
     console.log("tree: ", JSON.stringify(tree, null, 2));
-    console.log("resultList: ", JSON.stringify(resultList, null, 2));
 
     var result = NodeModule.sortModuleListByDependencyOrder(list, tree);
+    console.log("result: ", JSON.stringify(result, null, 2));
 
     if ( result.join() === resultList.join() ) {
-        next && next.pass();
+        test.done(pass());
     } else {
-        next && next.miss();
+        test.done(miss());
     }
 }
 
